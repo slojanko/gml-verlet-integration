@@ -1,11 +1,11 @@
-function Point(x_, y_, tx_, ty_) constructor {
+function Point(x_, y_, tx_, ty_, fixed_ = false) constructor {
 	x = x_;
 	y = y_;
 	x_prev = x_;
 	y_prev = y_;
 	tx = tx_;
 	ty = ty_;
-	fixed = false;
+	fixed = fixed_;
 	
 	static Update = function(dt_) {
 		if (fixed) {
@@ -30,20 +30,12 @@ function Point(x_, y_, tx_, ty_) constructor {
 		}
 	}
 	
-	txx = 0;
-	tyy = 0;
-	
 	static AddDistance = function(dx_, dy_) {		
 		x += dx_;
 		y += dy_;
-		
-		txx = dx_;
-		tyy = dy_;
 	}
 	
-	static Draw = function() {		
-		// draw_point(x, y);
-		draw_line_color(x, y, x + txx * 10, y, c_red, c_red);
-		draw_line_color(x, y, x, y + tyy * 10, c_blue, c_blue);
+	static DebugDraw = function() {		
+		draw_point(x, y);
 	}
 }

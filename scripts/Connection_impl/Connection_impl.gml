@@ -1,9 +1,9 @@
 function Connection(p1_, p2_) constructor{
 	p1 = p1_;
 	p2 = p2_;
-	length = point_distance(p1.x, p1.y, p2.x, p2.y);
-	angle = point_direction(p1.x, p1.y, p2.x, p2.y);
-	stiffness = 0.2;
+	initial_length = point_distance(p1.x, p1.y, p2.x, p2.y);
+	//angle = point_direction(p1.x, p1.y, p2.x, p2.y);
+	stiffness = 0.9;
 	
 	static Update = function() {
 		// Length
@@ -11,7 +11,7 @@ function Connection(p1_, p2_) constructor{
 		var dy = p2.y - p1.y;
 		
 		var dist = sqrt(dx * dx + dy * dy);
-		var diff = (length - dist) / dist * stiffness;
+		var diff = (initial_length - dist) / dist * stiffness;
 		
 		var x_offset = dx * diff * 0.5;
 		var y_offset = dy * diff * 0.5;
@@ -28,6 +28,7 @@ function Connection(p1_, p2_) constructor{
 		}
 	}	
 	
-	static Draw = function() {
+	static DebugDraw = function() {
+		draw_line(p1.x, p1.y, p2.x, p2.y);
 	}
 }
