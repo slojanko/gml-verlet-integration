@@ -3,7 +3,7 @@ function Connection(p1_, p2_) constructor{
 	p2 = p2_;
 	initial_length = point_distance(p1.x, p1.y, p2.x, p2.y);
 	//angle = point_direction(p1.x, p1.y, p2.x, p2.y);
-	stiffness = 0.9;
+	stiffness = 0.8;
 	
 	static Update = function() {
 		// Length

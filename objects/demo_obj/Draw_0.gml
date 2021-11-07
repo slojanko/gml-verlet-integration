@@ -1,2 +1,1 @@
-verlet.DrawRect();
-verlet.DebugDraw();
+verlet.Draw();
